@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-/* main fun */
+/**
+ * main - A description
+ * Return: integer
+ */
 int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
