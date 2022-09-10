@@ -30,5 +30,7 @@ int main(void)
 			}
 		}
 	}
+	/* end new line */
+	putchar('\n');
 	return (0);
 }
