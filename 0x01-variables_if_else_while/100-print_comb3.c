@@ -23,8 +23,11 @@ int main(void)
 		{
 			putchar(int_a + '0');
 			putchar(int_b + '0');
-			putchar(',');
-			putchar(' ');
+			if (int_a != 8 || int_b != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
 	}
 	return (0);
