@@ -19,8 +19,7 @@ int main(void)
 		{
 			for (int_ba = int_aa; int_ba < 10; int_ba++)
 			{
-				for (int_bb = int_aa == 0 ?
-					0 : int_ab + 1;
+				for (int_bb = int_ab + 1;
 					int_bb < 10; int_bb++)
 				{
 
