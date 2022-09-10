@@ -19,22 +19,19 @@ int main(void)
 		{
 			for (int_ba = int_aa; int_ba < 10; int_ba++)
 			{
-				for (int_bb = int_ab + 1; int_bb < 10; int_bb++)
+				for (int_bb = int_ba == int_aa ? int_ab + 1 : 0;
+					 int_bb < 10; int_bb++)
 				{
-					/* skip the first 00 */
-					if (int_ba != 0 || int_bb !=0)
+					putchar(int_aa + '0');
+					putchar(int_ab + '0');
+					putchar(' ');
+					putchar(int_ba + '0');
+					putchar(int_bb + '0');
+					/* skip last number */
+					if (int_aa != 9 || int_ab != 8)
 					{
-						putchar(int_aa + '0');
-						putchar(int_ab + '0');
+						putchar(',');
 						putchar(' ');
-						putchar(int_ba + '0');
-						putchar(int_bb + '0');
-						/* skip last number */
-						if (int_aa != 9 || int_ab != 8)
-						{
-							putchar(',');
-							putchar(' ');
-						}
 					}
 				}
 			}
