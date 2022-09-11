@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 
 /**
  * main - Main function entry point
  * Return: Always 0
+ * Description: putchar unique combination of 0-90-9 0-90-9
  */
 int main(void)
 {
@@ -18,14 +18,14 @@ int main(void)
 	{
 		for (int_first_b = 0; int_first_b < 10; int_first_b++)
 		{
-			/* second a loop, notice we are tracking first a here!, why? because after first a passes a number, */
-			/* we can be sure all possible match with that number is done, e.g if first a passes 40 like: 4* **, */
-			/* ** 2* is unnecassary because it must have been matched earlier */
+			/*
+			 * second a loop, notice we are tracking first a here!,
+			 * why? because after first a passes a number,
+			 * we can be sure all possible match with that number is done,
+			 */
 			for (int_second_a = int_first_a; int_second_a < 10; int_second_a++)
 			{
-				/* we determine the start value by comparing if first a matches second a, but up above we set second a to be equal first a, so why match?? */
-				/* because that we we can track if it's on its first iteration, first iteration means we can add one to first b as the satrt value,*/
-				/* because again it must have been matched earlier */
+				/* betty style linting, cant exceed 40 lines for function */
 				for (int_second_b = int_second_a == int_first_a ? int_first_b + 1 : 0;
 					 int_second_b < 10; int_second_b++)
 				{
@@ -35,11 +35,11 @@ int main(void)
 					putchar(int_second_a + '0');
 					putchar(int_second_b + '0');
 					/* skip last number */
-					if (int_first_a != 9 || int_first_b != 8)
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					if (int_first_a == 9 && int_first_b == 8)
+						continue;
+					putchar(',');
+					putchar(' ');
+
 				}
 			}
 		}

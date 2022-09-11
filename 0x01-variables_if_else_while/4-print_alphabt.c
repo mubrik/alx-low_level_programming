@@ -1,18 +1,19 @@
 #include <stdio.h>
-#include <string.h>
 
 /**
  * main - Main function entry point
  * Return: Always 0
+ * Description: print out alphabets filtered q and e
  */
 int main(void)
 {
-	char alphabets[] = "abcdefghijklmnopqrstuvwxyz";
-	int len = strlen(alphabets);
+	/* string = array of chars */
+	char alphabets[26] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = 0 ; i < len; i++)
+	for (i = 0 ; i < 26; i++)
 	{
+		/* checking q and e */
 		if (alphabets[i] != 'q' && alphabets[i] != 'e')
 		{
 			putchar(alphabets[i]);

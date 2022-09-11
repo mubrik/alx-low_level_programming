@@ -1,17 +1,17 @@
 #include <stdio.h>
-#include <string.h>
 
 /**
  * main - Main function entry point
  * Return: Always 0
+ * Description: print out alphabets and capital
  */
 int main(void)
 {
-	char alphabets[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int len = strlen(alphabets);
+	/* string = array of characters */
+	char alphabets[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
 
-	for (i = 0 ; i < len; i++)
+	for (i = 0 ; i < 52; i++)
 	{
 		putchar(alphabets[i]);
 	}

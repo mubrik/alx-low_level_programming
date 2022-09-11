@@ -5,6 +5,7 @@
 /**
  * main - Main function entry point
  * Return: Always 0
+ * Description: print out last digit of a random elem
  */
 
 int main(void)
@@ -14,6 +15,7 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
+	/* get last digit by getting remainder when divided by 10 */
 	last_digit = n % 10;
 
 	printf("Last digit of %d is %d %s\n",

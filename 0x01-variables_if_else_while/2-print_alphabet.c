@@ -3,11 +3,12 @@
 /**
  * main - Main function entry point
  * Return: Always 0
- * Description: reversed alphabets
+ * Description: print out alphabets
  */
 int main(void)
 {
-	char alphabets[26] = "zyxwvutsrqponmlkjihgfedcba";
+	/* string = make an 'array' of characters */
+	char alphabets[26] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
 	for (i = 0 ; i < 26; i++)

@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 
 /**
  * main - Main function entry point
  * Return: Always 0
+ * Description: putchar unique combinations of 0-9 0-9 0-9
  */
 int main(void)
 {
@@ -11,7 +11,6 @@ int main(void)
 	int int_a;
 	int int_b;
 	int int_c;
-	/* int i; */
 
 	/* loop for the first integer */
 	for (int_a = 0 ; int_a < 8; int_a++)
@@ -29,11 +28,11 @@ int main(void)
 				putchar(int_b + '0');
 				putchar(int_c + '0');
 				/* skip last comma */
-				if (int_a != 7 || int_b != 8 || int_c != 9)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				if (int_a == 7 && int_b == 8 && int_c != 9)
+					continue;
+				putchar(',');
+				putchar(' ');
+
 			}
 		}
 	}
