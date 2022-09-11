@@ -28,11 +28,10 @@ int main(void)
 				putchar(int_b + '0');
 				putchar(int_c + '0');
 				/* skip last comma */
-				if (int_a == 7 && int_b == 8 && int_c != 9)
+				if (int_a == 7 && int_b == 8 && int_c == 9)
 					continue;
 				putchar(',');
 				putchar(' ');
-
 			}
 		}
 	}
