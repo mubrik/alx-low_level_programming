@@ -14,7 +14,10 @@ int main(void)
 
 	for (i = 0 ; i < 16; i++)
 	{
-		/* '0' == 48 in ascii, adding 48 to numbers in array to convert them to ascii */
+		/*
+		 * '0' == 48 in ascii,
+		 * adding 48 to numbers in array to convert them to ascii
+		 */
 		putchar(num_arr[i] + '0');
 	}
 	/* print new line */
