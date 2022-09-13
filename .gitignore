@@ -1,2 +1,4 @@
 # ignore emacs temp
 *~
+# ignore putchar for 0x02
+_putchar.c
