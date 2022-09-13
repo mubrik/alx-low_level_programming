@@ -6,7 +6,6 @@
  */
 void times_table(void)
 {
-	/* loop within a loop */
 	int first_loop;
 	int second_loop;
 	/* dont need to declare this can be one line but i like xplicit */
@@ -32,16 +31,11 @@ void times_table(void)
 			}
 			else
 			{
-				/* get first and last char */
-				int first_ch;
-				int second_ch;
-
-				first_ch = value_to_print / 10;
-				second_ch = value_to_print % 10;
 				/* single space for double char */
 				_putchar(' ');
-				_putchar(first_ch + '0');
-				_putchar(second_ch + '0');
+				/* get first and last char */
+				_putchar((value_to_print / 10) + '0');
+				_putchar((value_to_print % 10) + '0');
 			}
 			/* final comma skip */
 			if (second_loop == 9)
