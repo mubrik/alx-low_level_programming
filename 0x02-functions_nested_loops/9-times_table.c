@@ -21,8 +21,8 @@ void times_table(void)
 			/* have to handle value > 10 seperately */
 			if (value_to_print < 10)
 			{
-				/* dont print space for 0 */
-				if (value_to_print != 0)
+				/* dont print space for first iteration */
+				if (second_loop != 0)
 				{
 					/* double space for single char */
 					_putchar(' ');
