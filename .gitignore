@@ -2,3 +2,4 @@
 *~
 # ignore putchar for 0x02
 _putchar.c
+main.c
