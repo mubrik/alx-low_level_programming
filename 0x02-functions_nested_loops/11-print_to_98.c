@@ -16,7 +16,7 @@ void print_3_num(int n)
 		_putchar('-');
 		if (n > -10)
 			_putchar((n * -1) + '0');
-		else if (n >= -100)
+		else if (n > -100)
 		{
 			n = n * -1;
 			_putchar((n / 10) + '0');
