@@ -5,6 +5,8 @@
  * print_3_num - print up to 3 numbers using _putchar
  * @n: num to print
  * Return: void
+ * Description: i hate that i am doing if checks like this
+ * not recursions or loops but limited toolset and brain
  */
 void print_3_num(int n)
 {
@@ -14,10 +16,18 @@ void print_3_num(int n)
 		_putchar('-');
 		if (n > -10)
 			_putchar((n * -1) + '0');
-		else
+		else if (n >= -100)
 		{
 			n = n * -1;
 			_putchar((n / 10) + '0');
+			_putchar((n % 10) + '0');
+		}
+		else
+		{
+			n = n * -1;
+			/* print first, second and last char */
+			_putchar((n / 100) + '0');
+			_putchar(((n % 100) / 10) + '0');
 			_putchar((n % 10) + '0');
 		}
 	}
