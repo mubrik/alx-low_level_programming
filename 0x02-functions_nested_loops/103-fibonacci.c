@@ -13,8 +13,8 @@ int main(void)
 	unsigned long int total;
 
 	/* first 2 numbers to start */
-	first_numb = 1;
-	second_numb = 2;
+	first_numb = 0;
+	second_numb = 1;
 	total = 0;
 
 	/* start by adding both */
