@@ -24,7 +24,7 @@ int main(void)
 
 	for (i = 3; i <= 50; i++)
 	{
-		printf("%lu ", sequence_val);
+		printf("%lu%s", sequence_val, i == 50 ? "" : ", ");
 		/* make first numb 2nd numb */
 		first_numb = second_numb;
 		/* make second numb the prev total */
