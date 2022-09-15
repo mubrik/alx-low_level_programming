@@ -16,7 +16,7 @@ void more_numbers(void)
 		while (num_count <= 14)
 		{
 			/* if > 10 print first char */
-			if (num_count > 10)
+			if (num_count >= 10)
 			{
 				_putchar((num_count / 10) + '0');
 			}
