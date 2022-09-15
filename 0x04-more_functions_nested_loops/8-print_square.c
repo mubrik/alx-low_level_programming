@@ -29,8 +29,4 @@ void print_diagonal(int n)
 		_putchar('\n');
 		vertical_loop++;
 	}
-	if (n <= 0)
-	{
-		_putchar('\n');
-	}
 }
