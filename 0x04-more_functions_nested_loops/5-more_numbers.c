@@ -30,13 +30,19 @@ void print_3_num(int n)
 	*/
 void more_numbers(void)
 {
-	int i;
+	int line_count;
+	int num_count;
 
-	i = 0;
-	while (i <= 14)
+	line_count = 0;
+	while (line_count <= 9)
 	{
-		print_3_num(i);
-		i++;
+		num_count = 0;
+		while (num_count <= 14)
+		{
+			print_3_num(num_count);
+			num_count++;
+		}
+		_putchar('\n');
+		line_count++;
 	}
-	_putchar('\n');
 }
