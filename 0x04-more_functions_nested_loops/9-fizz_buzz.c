@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
   * is_multiple_3 - checks if a multiple of 3
@@ -22,6 +21,17 @@ int is_multiple_5(int n)
 }
 
 /**
+  * print_w_space - checks if 100, skips space if so
+	* @c: char to print
+	* @n: int to check
+	* Return: 1 if true, 0 if false
+	*/
+void print_w_space(char *c, int n)
+{
+	printf("%s%s", c, n == 100 ? "" : " ");
+}
+
+/**
   * main - Fizz-Buzz test
 	* Return: 1
 	*/
@@ -34,13 +44,13 @@ int main(void)
 	{
 		if (is_multiple_3(i) && is_multiple_5(i))
 		{
-			printf("FizzBuzz ");
+			print_w_space("FizzBuzz", i);
 		} else if (is_multiple_3(i))
 		{
-			printf("Fizz ");
+			print_w_space("Fizz", i);
 		} else if (is_multiple_5(i))
 		{
-			printf("Buzz ");
+			print_w_space("Buzz", i);
 		} else
 		{
 			printf("%d ", i);
