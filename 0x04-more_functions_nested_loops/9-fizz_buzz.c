@@ -58,5 +58,5 @@ int main(void)
 		i++;
 	}
 	printf("\n");
-	return (1);
+	return (0);
 }
