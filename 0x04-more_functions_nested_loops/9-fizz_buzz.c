@@ -28,7 +28,7 @@ int is_multiple_5(int n)
 	*/
 void print_w_space(char *c, int n)
 {
-	printf("%s%s", c, n == 100 ? "" : " ");
+	printf("%s%s", c, n == 100 ? " " : " ");
 }
 
 /**
