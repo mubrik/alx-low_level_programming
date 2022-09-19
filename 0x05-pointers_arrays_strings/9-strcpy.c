@@ -24,5 +24,8 @@ char *_strcpy(char *dest, char *src)
 		dest++;
 	}
 
+	/* add null pointer to last */
+	*dest = '\0';
+
 	return (first);
 }

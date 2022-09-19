@@ -1,21 +1,21 @@
 #include "main.h"
 
 /**
-  * _strlen - returns the length of a string.
+  * _strlen - recursive? returns the length of a string.
 	* @s: pointer of char
 	* Return: int length
 	*/
 int _strlen(char *s)
 {
-	int len;
-
-	len = 0;
-	while (*s != 0)
+	/* checking if the current value of pointer not null */
+	if (*s != 0)
 	{
+		/* move the pointer foward and call the function again adding 1! */
 		s++;
-		len++;
+		return (1 + _strlen(s));
 	}
-	return (len);
+
+	return (0);
 }
 
 /**
