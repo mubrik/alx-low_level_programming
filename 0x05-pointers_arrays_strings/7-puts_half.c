@@ -32,13 +32,14 @@ void puts_half(char *str)
 	if (str_len % 2 == 0)
 		start = str_len / 2;
 	else
-		start = (str_len - 1) / 2;
+		/* adding 1 to this as odd isnt cleanly divisible and will be less */
+		start = ((str_len - 1) / 2) + 1;
 
 	/* iterate until 1 lss than */
-	while (start < str_len - 1)
+	while (start < str_len)
 	{
 		/* print value of pointer after moved by start */
-		_putchar(*(str + (start + 1)));
+		_putchar(*(str + start));
 		/* move pointer foward */
 		start++;
 	}
