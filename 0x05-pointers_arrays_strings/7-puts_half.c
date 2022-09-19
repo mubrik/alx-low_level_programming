@@ -35,10 +35,10 @@ void puts_half(char *str)
 		start = (str_len - 1) / 2;
 
 	/* iterate until 1 lss than */
-	while (start < str_len)
+	while (start < str_len - 1)
 	{
 		/* print value of pointer after moved by start */
-		_putchar(*(str + start));
+		_putchar(*(str + (start + 1)));
 		/* move pointer foward */
 		start++;
 	}
