@@ -40,7 +40,7 @@ void puts_half(char *str)
 	{
 		/* print value of pointer after moved by start */
 		_putchar(*(str + start));
-		/* move pointer foward */
+		/* move start foward */
 		start++;
 	}
 	_putchar('\n');
