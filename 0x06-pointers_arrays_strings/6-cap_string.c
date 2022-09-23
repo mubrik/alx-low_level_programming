@@ -37,9 +37,9 @@ char *cap_string(char *str_pointer)
 			*(start_pointer - 1) == '\t' || *(start_pointer - 1) == '.' ||
 			*(start_pointer - 1) == ',' ||	*(start_pointer - 1) == '!' ||
 			*(start_pointer - 1) == ';' ||	*(start_pointer - 1) == '?' ||
-			*(start_pointer - 1) == '\n'|| *(start_pointer - 1) == '(' ||
-			*(start_pointer - 1) == ')'|| *(start_pointer - 1) == '{' ||
-			*(start_pointer - 1) == '}'|| *(start_pointer - 1) == '"' )
+			*(start_pointer - 1) == '\n' || *(start_pointer - 1) == '(' ||
+			*(start_pointer - 1) == ')' || *(start_pointer - 1) == '{' ||
+			*(start_pointer - 1) == '}' || *(start_pointer - 1) == '"')
 		{
 			capitalize(start_pointer);
 		}
