@@ -27,29 +27,34 @@ int _strlen(char *s)
  */
 int match_str(char *str_ptr, char *match_ptr)
 {
-	int match_len, index;
+	int match_len, index, result;
+
+	result = 1;
 	/* get str len of match */
 	match_len = _strlen(match_ptr) - 1;
 	/* match all characters */
 	for (index = 0; index <= match_len; index++)
 	{
-		if (*(str_ptr + index) != *(match_ptr + index))
+		if (str_ptr[index] != match_ptr[index])
 		{
-			return (0);
+			result = 0;
+			break;
 		}
 	}
-	return (1);
+	return (result);
 }
 
 
 /**
  * _strstr - locates a substring
  * @haystack: the string
- * @needle: characters to find
+ * @needle: exact characters to find in string
  * Return: char * if exist, else NULL
  */
 char *_strstr(char *haystack, char *needle)
 {
+	char *result = NULL;
+
 	while (*haystack != '\0')
 	{
 		/* check for the first match*/
@@ -59,13 +64,14 @@ char *_strstr(char *haystack, char *needle)
 			if (match_str(haystack, needle))
 			{
 				/* if all matchs return the ptr/address */
-				return (haystack);
+				result = haystack;
+				break;
 			}
 		}
 		/* move haystack */
 		haystack++;
 	}
 
-	return (NULL);
+	return (result);
 
 }
