@@ -2,30 +2,23 @@
 
 /**
   * print_chessboard - prints the chessboard.
-	* @ptr_to_ptr: pointer to ptr
+	* @arr_2d: pointer to ptr
 	* Return: void
 	*/
-void print_chessboard(char (*ptr_to_ptr)[8])
+void print_chessboard(char (*arr_2d)[8])
 {
+	int index, col;
 
-	/* variables */
-	int col;
-	char *row_ptr;
-	/* copy first value which is a pointer to the 1st row ptr/add */
-	row_ptr = *ptr_to_ptr;
-
-	/* iterate using row ptr then push by a full row size to
-		* move pointer to start of current row
-		*/
-	while (*row_ptr != '\0')
+	index = 0;
+	while (index < 8)
 	{
 		/* get col by pushing with a size of a single value */
 		for (col = 0; col < 8; col++)
 		{
-			_putchar(row_ptr[col]);
+			_putchar(arr_2d[index][col]);
 		}
 		_putchar('\n');
-		row_ptr = row_ptr + (sizeof(char) * 8);
+		index++;
 	}
 
 }
