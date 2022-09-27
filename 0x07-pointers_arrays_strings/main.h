@@ -10,5 +10,6 @@ char *_strpbrk(char *str_ptr, char *accept);
 char *_strstr(char *haystack, char *needle);
 void print_chessboard(char (*ptr_to_ptr)[8]);
 void print_diagsums(int *arr_ptr, int size);
+void set_string(char **str_ptr, char *to);
 
 #endif /* MAIN_H */
