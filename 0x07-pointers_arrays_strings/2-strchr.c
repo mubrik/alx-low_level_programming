@@ -9,15 +9,18 @@
  */
 char *_strchr(char *str_ptr, char c)
 {
+	/* pointer to return */
+	char *result_ptr = NULL;
 	/* simple iteration */
 	while (*str_ptr != '\0')
 	{
 		if (*str_ptr == c)
 		{
-			return (str_ptr);
+			result_ptr = str_ptr;
+			break;
 		}
 		str_ptr++;
 	}
 
-	return (NULL);
+	return (result_ptr);
 }
