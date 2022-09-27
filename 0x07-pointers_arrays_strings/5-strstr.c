@@ -54,6 +54,12 @@ int match_str(char *str_ptr, char *match_ptr)
 char *_strstr(char *haystack, char *needle)
 {
 	char *result = NULL;
+	/* cover base case, null byte */
+	if (*needle == '\0')
+	{
+		result = haystack;
+		return (result);
+	}
 
 	while (*haystack != '\0')
 	{
