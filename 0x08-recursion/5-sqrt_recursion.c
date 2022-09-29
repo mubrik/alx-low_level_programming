@@ -2,32 +2,23 @@
 
 /**
   * recourse - recourse to find squ root.
-	* @start: start, usually 0
-	* @end: end, usually n
-	* @mid: mid, usually mid of st+en
+	* @sqr: start, usually 0
 	* @n: number to find sq root of
 	* Return: int square root
 	*/
-int recourse(int start, int end, int mid, int n)
+int recourse(int sqr, int n)
 {
 	int result;
+	/* base case confirm start lower  */
+	if (sqr > (n / 2))
+		return (sqr);
 	/* calculate square */
-	result = mid * mid;
+	result = sqr * sqr;
 	/* base case check square rsult */
 	if (result == n)
-		return (mid);
-	/* base case confirm start lower  */
-	if (start > end)
-		return (mid);
-	/* increment strt if res lower, else decrement end */
-	if (result < n)
-		start = mid + 1;
-	else
-		end = mid - 1;
-	/* get the new middle */
-	mid = (start + end) / 2;
-	/* call recourse with incremented/decremented start/end */
-	return (recourse(start, end, mid, n));
+		return (sqr);
+	/* call recourse with incremented sqr */
+	return (recourse(++sqr, n));
 }
 
 /**
@@ -43,7 +34,7 @@ int _sqrt_recursion(int n)
 	if (n == 1)
 		return (1);
 	/* get res */
-	ans = recourse(0, n, (0 + n) / 2, n);
+	ans = recourse(1, n);
 	/* verify */
 	if ((ans * ans) == n)
 		return (ans);
