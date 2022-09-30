@@ -9,11 +9,8 @@ int strlen_rec(char *src_ptr)
 {
 	/* checking if the current value of pointer not null */
 	if (*src_ptr != 0)
-	{
 		/* move the pointer foward and call the function again adding 1! */
-		src_ptr++;
-		return (1 + strlen_rec(src_ptr));
-	}
+		return (1 + strlen_rec(++src_ptr));
 
 	return (0);
 }
