@@ -3,7 +3,7 @@
 
 /**
 	* is_number - checks if string is number
-	* @str_pointer: str pointer
+	* @src_ptr: str pointer
 	* Return: 1 if true, 0 else
 	*/
 int is_number(char *src_ptr)
