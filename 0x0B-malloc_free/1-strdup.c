@@ -36,13 +36,13 @@ char *_strdup(char *str_ptr)
 	size = _strlen_recursion(str_ptr);
 	/* save some cycle */
 	if (size == 0)
-		{
-			arr = (char *) malloc(1);
-			if (arr == NULL)
-				return (NULL);
-			*arr = '\0';
-			return (arr);
-		}
+	{
+		arr = (char *) malloc(1);
+		if (arr == NULL)
+			return (NULL);
+		*arr = '\0';
+		return (arr);
+	}
 
 	/* alloc space, +1 for null terminator  */
 	arr = (char *) malloc((size * sizeof(char)) + 1);
@@ -54,8 +54,10 @@ char *_strdup(char *str_ptr)
 	{
 		/* null terminator if last memory allocated */
 		if (index == size)
+		{
 			arr[index] = '\0';
 			break;
+		}
 		arr[index] = str_ptr[index];
 	}
 
