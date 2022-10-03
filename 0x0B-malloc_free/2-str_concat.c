@@ -34,8 +34,8 @@ char *str_concat(char *str_ptr1, char *str_ptr2)
 	strB_len = _strlen_recursion(str_ptr2 == NULL ? "" : str_ptr2);
 	size = strA_len + strB_len;
 
-	/* alloc space */
-	new_str_ptr = (char *) malloc(size * sizeof(char));
+	/* alloc space, +1 for null terminator */
+	new_str_ptr = (char *) malloc((size * sizeof(char)) + 1);
 	/* copy */
 	result_ptr = new_str_ptr;
 	/* sure malloc is successful */
