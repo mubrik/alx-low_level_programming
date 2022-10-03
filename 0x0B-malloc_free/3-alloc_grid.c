@@ -15,16 +15,23 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	/* get sizes */
 	width_size = sizeof(int) * width;
-	height_size = width_size * height;
-	/* allocate height */
+	/* allocate height, +1 for null byte */
+	height_size = width_size * (height + 1);
 	arr = (int **) malloc(height_size);
 	/* verify */
 	if (arr == NULL)
 		return (NULL);
 	/* make 2d arr */
-	for (index_h = 0; index_h < height; index_h++)
+	for (index_h = 0; index_h <= height; index_h++)
 	{
-		/* allocate width array */
+		if (index_h == height)
+		{
+			/* last byte */
+			arr[index_h] = '\0';
+			break;
+		}
+
+		/* allocate mem for width array */
 		arr_w = malloc(width_size);
 		/* verify */
 		if (arr_w == NULL)
