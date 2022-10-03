@@ -21,7 +21,7 @@ char *create_array(unsigned int size, char c)
 
 	/* sure malloc is successful */
 	if (arr == NULL)
-		return NULL;
+		return (NULL);
 	/* fill with character */
 	for (index = 0; index < size; index++)
 	{

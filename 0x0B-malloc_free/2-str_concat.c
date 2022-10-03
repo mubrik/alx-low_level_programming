@@ -40,7 +40,7 @@ char *str_concat(char *str_ptr1, char *str_ptr2)
 	result_ptr = new_str_ptr;
 	/* sure malloc is successful */
 	if (new_str_ptr == NULL)
-		return NULL;
+		return (NULL);
 
 	/* fill with character for each str */
 	for (index = 0; index < strA_len; index++)

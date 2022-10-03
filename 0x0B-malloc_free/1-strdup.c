@@ -42,7 +42,7 @@ char *_strdup(char *str_ptr)
 	arr = (char *) malloc(size * sizeof(char));
 	/* sure malloc is successful */
 	if (arr == NULL)
-		return NULL;
+		return (NULL);
 	/* fill with character */
 	for (index = 0; index < size; index++)
 	{
