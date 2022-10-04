@@ -1,5 +1,21 @@
 #include "main.h"
 
+
+/**
+  * _recurse_free - recursively free memory
+	* @arr: ptr to ptr of arr
+	* @n: index of arr
+	* Return: void
+	*/
+int _recurse_free(int **arr, int n)
+{
+	if (n < 0)
+		return (0);
+	/* free mem location */
+	free(arr[n]);
+	/* recourse below */
+	return (_recurse_free(arr, n - 1));
+}
 /**
   * **alloc_grid - returns a pointer to a 2 dimensional array of integers.
 	* @width: int width of arr
@@ -29,6 +45,7 @@ int **alloc_grid(int width, int height)
 		/* verify */
 		if (arr_w == NULL)
 		{
+			_recurse_free(arr, index_h - 1);
 			free(arr);
 			return (NULL);
 		}
