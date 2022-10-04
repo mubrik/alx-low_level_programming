@@ -50,7 +50,7 @@ char *_strcpycustom(char *dest, char *src)
 
 
 /**
-  * **alloc_grid - concatenates all the arguments of your program.
+  * **argstostr - concatenates all the arguments of your program.
 	* @ac: arguement count
 	* @av: ptr to ptr arguement valu
 	* Return: ptr to the str or null
