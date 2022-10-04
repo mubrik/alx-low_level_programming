@@ -87,8 +87,8 @@ char **strtow(char *str)
 
 	/* word count */
 	word_count = _str_count(str);
-	/* get array size */
-	arr = (char **) malloc((sizeof(char *) * word_count) + 1);
+	/* get array size, + 1 to accomodate last NULL pointer */
+	arr = (char **) malloc(sizeof(char *) * (word_count + 1));
 	/* verify */
 	if (arr == NULL || word_count == 0)
 		return (NULL);
