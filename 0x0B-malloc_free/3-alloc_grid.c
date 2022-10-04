@@ -15,7 +15,7 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	/* get sizes */
 	width_size = sizeof(int) * width;
-	height_size = width_size * height;
+	height_size = sizeof(int *) * height;
 	/* allocate height, +1 for null byte */
 	arr = (int **) malloc(height_size + 1);
 	/* verify */
