@@ -17,13 +17,20 @@ int **alloc_grid(int width, int height)
 	width_size = sizeof(int) * width;
 	height_size = sizeof(int *) * height;
 	/* allocate height, +1 for null byte */
-	arr = (int **) malloc(height_size);
+	arr = (int **) malloc(height_size + 1);
 	/* verify */
 	if (arr == NULL)
 		return (NULL);
 	/* make 2d arr */
 	for (index_h = 0; index_h <= height; index_h++)
 	{
+		if (index_h == height)
+		{
+			/* last byte */
+			arr[index_h] = '\0';
+			break;
+		}
+
 		/* allocate mem for width array */
 		arr_w = malloc(width_size);
 		/* verify */
