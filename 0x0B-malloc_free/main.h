@@ -8,5 +8,6 @@ char *_strdup(char *str_ptr);
 char *str_concat(char *str_ptr1, char *str_ptr2);
 int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
+char *argstostr(int ac, char **av);
 
 #endif /* MAIN_H */
