@@ -90,7 +90,7 @@ char **strtow(char *str)
 	/* get array size */
 	arr = (char **) malloc((sizeof(char *) * word_count) + 1);
 	/* verify */
-	if (arr == NULL)
+	if (arr == NULL || word_count == 0)
 		return (NULL);
 	/* logic baba */
 	base_arr_index = 0;
