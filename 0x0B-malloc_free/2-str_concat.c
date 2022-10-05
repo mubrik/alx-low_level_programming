@@ -7,8 +7,10 @@
 	*/
 int _strlen_recursion(char *src_ptr)
 {
+	if (src_ptr == NULL)
+		return (0);
 	/* checking if the current value of pointer not null */
-	if (*src_ptr != 0)
+	if (*src_ptr != '\0')
 	{
 		/* move the pointer foward and call the function again adding 1! */
 		src_ptr++;
@@ -42,19 +44,20 @@ char *str_concat(char *str_ptr1, char *str_ptr2)
 	if (new_str_ptr == NULL)
 		return (NULL);
 
-	/* fill with character for each str */
+	/* fill with character for each str strA = 1-7 */
 	for (index = 0; index < strA_len; index++)
 	{
-		*new_str_ptr = str_ptr1[index];
-		new_str_ptr++;
+		new_str_ptr[index] = str_ptr1[index];
+		/* new_str_ptr++; */
 	}
-	for (index = 0; index < strB_len; index++)
+	/* 7 */
+	for (index = strA_len; index < strB_len + strA_len; index++)
 	{
-		*new_str_ptr = str_ptr2[index];
-		new_str_ptr++;
+		new_str_ptr[index] = str_ptr2[index - strA_len];
+		/* new_str_ptr++; */
 	}
 	/*  add nul terminator */
-	*new_str_ptr = '\0';
+	new_str_ptr[strB_len + strA_len] = '\0';
 
 	return (result_ptr);
 }
