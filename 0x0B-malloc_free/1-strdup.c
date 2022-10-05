@@ -8,7 +8,7 @@
 int _strlen_recursion(char *src_ptr)
 {
 	/* checking if the current value of pointer not null */
-	if (*src_ptr != 0)
+	if (*src_ptr != '\0')
 	{
 		/* move the pointer foward and call the function again adding 1! */
 		src_ptr++;
@@ -34,15 +34,6 @@ char *_strdup(char *str_ptr)
 		return (NULL);
 	/* get string len */
 	size = _strlen_recursion(str_ptr);
-	/* save some cycle */
-	if (size == 0)
-	{
-		arr = (char *) malloc(1);
-		if (arr == NULL)
-			return (NULL);
-		*arr = '\0';
-		return (arr);
-	}
 
 	/* alloc space, +1 for null terminator  */
 	arr = (char *) malloc((size * sizeof(char)) + 1);
