@@ -2,11 +2,9 @@
 #include "3-calc.h"
 
 /**
- * array_iterator - function that searches for an integer.
- * @array : with actionable items
- * @size: size of arr
- * @cmp: func ptr to compare items
- * Return: Always void.
+ * get_op_func - function that searches for an integer.
+ * @s : ptr to string
+ * Return: int or null
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -22,10 +20,10 @@ int (*get_op_func(char *s))(int, int)
 
 	i = 0;
 	/* find matching object op_t in array */
-	while (i < 6)
+	while (i < 5)
 	{
-		if (*s == *(ops[i].op_name))
-			return ops[i].func_ptr;
+		if (*(ops[i].op_name) == *s)
+			return (ops[i].func_ptr);
 		i++;
 	}
 	/* not found null */
