@@ -15,8 +15,8 @@ int (*get_op_func(char *s))(int, int);
 /**
  * struct op - Struct op
  *
- * @op: The operator
- * @f: The function associated
+ * @op_name: The operator
+ * @func_ptr: The function associated
  */
 typedef struct op
 {
