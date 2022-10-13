@@ -2,7 +2,7 @@
 #include "function_pointers.h"
 
 /**
- * array_iterator - function that searches for an integer.
+ * int_index - function that searches for an integer.
  * @array : with actionable items
  * @size: size of arr
  * @cmp: func ptr to compare items
@@ -13,7 +13,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	int index;
 
 	/* early ret */
-	if (size <= 0)
+	if (size <= 0 || array == NULL || cmp == NULL)
 		return (-1);
 	/* check cmp func */
 	for (index = 0; index < size; index++)
