@@ -9,8 +9,7 @@
  */
 void print_name(char *name, void (*func_ptr)(char *))
 {
-	void (*use_func)(char *);
-
-	use_func = *func_ptr;
-	use_func(name);
+	if (name == NULL || func_ptr == NULL)
+		exit(EXIT_SUCCESS);
+	func_ptr(name);
 }
