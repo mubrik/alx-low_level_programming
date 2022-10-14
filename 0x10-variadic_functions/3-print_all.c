@@ -72,8 +72,7 @@ void print_all(const char * const format, ...)
 	va_start(argv, format);
 	/* copy const frmat */
 	fmt_ptr = (char *) format;
-	/* iterate using format */
-	/* check null first to avoid seg error */
+	/* iterate using format, check null first to avoid seg error */
 	while (format != NULL && *fmt_ptr != '\0')
 	{
 		index = 0;
