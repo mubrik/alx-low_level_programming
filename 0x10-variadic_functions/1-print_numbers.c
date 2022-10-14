@@ -13,9 +13,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	int index, pr_sep;
 	va_list argv;
 
-	/* base check */
-	if (n == 0)
-		exit(EXIT_SUCCESS);
 	/* get argv */
 	va_start(argv, n);
 	/* loop, casted unsigned to int */

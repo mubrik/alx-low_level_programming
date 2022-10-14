@@ -14,9 +14,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *str_to_print;
 	va_list argv;
 
-	/* base check */
-	if (n == 0)
-		exit(EXIT_SUCCESS);
 	/* get argv */
 	va_start(argv, n);
 	/* loop, casted unsigned to int */
