@@ -12,8 +12,7 @@ void pr_chars(va_list argv)
 	/* get the arg */
 	str_to_print = va_arg(argv, char *);
 	/* if null */
-	if (str_to_print == NULL)
-		str_to_print = "(nil)";
+	(str_to_print == NULL) && (str_to_print = "(nil)");
 	/* print arg */
 	printf("%s", str_to_print);
 }
@@ -87,7 +86,7 @@ void print_all(const char * const format, ...)
 				/* call function to print and pass list */
 				func_ptr(argv);
 				/* print comma space if not at last char */
-				if (*(fmt_ptr + 1) != '\0')
+				if (fmt_ptr[1] != '\0')
 					printf(", ");
 				/* break loop */
 				break;
