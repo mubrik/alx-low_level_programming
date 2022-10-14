@@ -1,5 +1,6 @@
 #ifndef DOGGO_H
 #define DOGGO_H
+#include <stdlib.h>
 
 /**
  * struct dog - Describes a dog
