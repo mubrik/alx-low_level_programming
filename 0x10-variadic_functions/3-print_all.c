@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 	char *fmt_ptr;
 	void (*func_ptr)(va_list argv);
 	va_list argv;
-	/* struct to hold arg to func */
+	/* struct to hold arg to func, defined in header */
 	arg_to_func_t arg_type[] = {
 		{"c", pr_char},
 		{"i", pr_int},
@@ -73,7 +73,8 @@ void print_all(const char * const format, ...)
 	/* copy const frmat */
 	fmt_ptr = (char *) format;
 	/* iterate using format */
-	while (*fmt_ptr != '\0')
+	/* check null first to avoid seg error */
+	while (format != NULL && *fmt_ptr != '\0')
 	{
 		index = 0;
 		/* find the current format in our list */
