@@ -8,7 +8,7 @@
 void free_dog(dog_t *dog_ptr)
 {
 	if (dog_ptr == NULL)
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	/* free individual parts */
 	free(dog_ptr->name);
 	free(dog_ptr->owner);
