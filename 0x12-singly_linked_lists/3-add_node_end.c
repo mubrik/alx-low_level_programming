@@ -12,13 +12,11 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *node, *next;
 	char *str_dup;
-	/* gotta null check */
-	if (!str)
-		return (NULL);
 
 	/* alloc space */
 		node = malloc(sizeof(list_t));
-		str_dup = strdup(str);
+		/* null checking str */
+		str_dup = (!str) ? NULL : strdup(str);
 		/* null check */
 		if ((!node) || (!str_dup))
 			return (NULL);
