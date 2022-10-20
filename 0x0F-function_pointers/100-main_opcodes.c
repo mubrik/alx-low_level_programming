@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	/* num bytes */
-	num = atoi(argv[argc - 1]);
+	num = atoi(argv[1]);
 	/* neg num */
 	if (num < 0)
 	{

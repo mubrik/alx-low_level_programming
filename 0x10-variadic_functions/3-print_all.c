@@ -95,6 +95,7 @@ void print_all(const char * const format, ...)
 		}
 		fmt_ptr++;
 	}
+	va_end(argv);
 	/* new line */
 	printf("\n");
 }
