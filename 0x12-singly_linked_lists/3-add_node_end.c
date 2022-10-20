@@ -14,16 +14,16 @@ list_t *add_node_end(list_t **head, const char *str)
 	char *str_dup;
 
 	/* alloc space */
-		node = malloc(sizeof(list_t));
-		/* null checking str */
-		str_dup = (!str) ? NULL : strdup(str);
-		/* null check */
-		if ((!node) || (!str_dup))
-			return (NULL);
-		/* struct attribs */
-		node->str = str_dup, node->len = _strlen(str_dup), node->next = NULL;
+	node = malloc(sizeof(list_t));
+	/* null checking str */
+	str_dup = (!str) ? "" : strdup(str);
+	/* null check */
+	if ((!node) || (!str_dup))
+		return (NULL);
+	/* struct attribs */
+	node->str = str_dup, node->len = _strlen(str_dup), node->next = NULL;
 
-	/* check null */
+	/* check null or first item */
 	if (!(*head))
 		*head = node;
 	else
