@@ -10,7 +10,7 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *node, *tmp;
+	list_t *node;
 	char *str_dup;
 	/* null chk */
 	if (!str)
