@@ -29,7 +29,6 @@ list_t *add_node(list_t **head, const char *str)
 	/* struct attribs */
 	node->str = str_dup, node->len = _strlen(str_dup);
 	/* check if start of list */
-	node->next = *head, *head = node;
 	if (!(*head))
 		node->next = NULL, *head = node;
 	else /* swappp */
