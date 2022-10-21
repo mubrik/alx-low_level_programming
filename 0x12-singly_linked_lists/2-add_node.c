@@ -10,20 +10,29 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *node;
+	list_t *node, *tmp;
 	char *str_dup;
 	/* null chk */
 	if (!str)
 		return (NULL);
 	/* alloc space */
 	node = malloc(sizeof(list_t));
+	if (!node)
+		return (NULL);
 	str_dup = strdup(str);
 	/* null check */
-	if ((!node) || str_dup == NULL)
+	if (!str_dup)
+	{
+		free(node);
 		return (NULL);
+	}
 	/* struct attribs */
 	node->str = str_dup, node->len = _strlen(str_dup);
 	/* check if start of list */
 	node->next = *head, *head = node;
+	if (!(*head))
+		node->next = NULL, *head = node;
+	else /* swappp */
+		tmp = *head, node->next = tmp, *head = node;
 	return (node);
 }
