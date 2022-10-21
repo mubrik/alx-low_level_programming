@@ -17,9 +17,11 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 	/* alloc space */
 	node = malloc(sizeof(list_t));
+	if (!node)
+		return (NULL);
 	str_dup = strdup(str);
 	/* null check */
-	if ((!node) || str_dup == NULL)
+	if (!str_dup)
 		return (NULL);
 	/* struct attribs */
 	node->str = str_dup, node->len = _strlen(str_dup), node->next = NULL;
