@@ -22,7 +22,10 @@ list_t *add_node_end(list_t **head, const char *str)
 	str_dup = strdup(str);
 	/* null check */
 	if (!str_dup)
+	{
+		free(node);
 		return (NULL);
+	}
 	/* struct attribs */
 	node->str = str_dup, node->len = _strlen(str_dup), node->next = NULL;
 
