@@ -19,7 +19,7 @@ list_t *add_node(list_t **head, const char *str)
 	node = malloc(sizeof(list_t));
 	str_dup = strdup(str);
 	/* null check */
-	if ((!node) || (!str_dup))
+	if ((!node) || str_dup == NULL)
 		return (NULL);
 	/* struct attribs */
 	node->str = str_dup, node->len = _strlen(str_dup);
