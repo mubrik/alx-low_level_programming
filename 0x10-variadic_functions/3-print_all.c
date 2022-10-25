@@ -69,9 +69,7 @@ void print_all(const char * const format, ...)
 		{"s", pr_chars},
 	};
 	/* start or init variadic arg list */
-	va_start(argv, format);
-	/* copy const frmat */
-	fmt_ptr = (char *) format;
+	va_start(argv, format), fmt_ptr = (char *) format;
 	/* iterate using format, check null first to avoid seg error */
 	while (format != NULL && *fmt_ptr != '\0')
 	{
