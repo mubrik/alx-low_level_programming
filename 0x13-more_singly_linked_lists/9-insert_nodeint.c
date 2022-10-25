@@ -36,7 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	n_node = malloc(sizeof(listint_t));
 	if (!n_node)
 		return (NULL);
-	if (n == 0)
+	if (idx == 0)
 	{
 		/* first element, assign attirbs */
 		n_node->n = n, n_node->next = node;
