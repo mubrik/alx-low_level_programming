@@ -8,29 +8,29 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *node;
-	list_adrs_t *addr_h = NULL;
+	listint_t *prev_node;
+	int flag = 0;
+	/* list_adrs_t *addr_h = NULL; */
 
 	/* cp first ptr, cast to remove const */
-	node = (listint_t *) head;
+	prev_node = NULL;
 
 	/* iterate */
-	while (node)
+	while (head)
 	{
-		if (!_is_in_addlist(addr_h, (void *)node))
+		if (prev_node != NULL)
 		{
-			_add_nodeaddr(&addr_h, (void *) node);
+			if (((uintptr_t) head) < ((uintptr_t) prev_node))
+				flag = 1;
 		}
-		else
-		{
-			_free_listaddr(addr_h);
-			return (node);
-		}
+		if (flag)
+			break;
+		printf("looping");
 		/* push */
-		node = node->next;
+		prev_node = head, head = head->next;
 	}
 
 	/* free our addr list */
-	_free_listaddr(addr_h);
-	return (NULL);
+	/* _free_listaddr(addr_h); */
+	return (head);
 }

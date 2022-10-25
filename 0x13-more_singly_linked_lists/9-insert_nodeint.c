@@ -47,7 +47,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* get node before insert position */
 	node = _get_nodeint_at_index(node, idx - 1);
 	if (!node)
+	{
+		free(n_node);
 		return (NULL); /* if prev node doesnt exist why bother? */
+	}
 	/* assign new node's next to point to the current node next */
 	n_node->n = n, n_node->next = node->next;
 	/* assign current node next to point to new node */

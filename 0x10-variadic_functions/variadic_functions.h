@@ -12,7 +12,7 @@ void print_all(const char * const format, ...);
  * struct arg_to_func - Struct arg_to_func
  *
  * @arg_repr: The character representation of arg
- * @arg_string: The string
+ * @pr_func_ptr: ptr tofunc
  */
 typedef struct arg_to_func
 {
