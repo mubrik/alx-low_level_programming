@@ -38,7 +38,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	if (n == 0)
 	{
+		/* first element, assign attirbs */
 		n_node->n = n, n_node->next = node;
+		/* change head ptr */
+		*head = n_node;
 		return (n_node);
 	}
 	/* get node before insert position */
