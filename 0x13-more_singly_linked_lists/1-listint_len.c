@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * print_listint - the number of elements in a linked listint_t list.
+ * listint_len - the number of elements in a linked listint_t list.
  * @head: head ptr to list first elem
  * Return: list size.
  */

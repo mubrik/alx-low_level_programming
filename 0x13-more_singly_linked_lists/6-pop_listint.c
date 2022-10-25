@@ -10,6 +10,7 @@ int pop_listint(listint_t **head)
 {
 	listint_t *node;
 	int n_value;
+	
 	if (!(*head))
 		return (0);
 	/* cp the *head ptr */

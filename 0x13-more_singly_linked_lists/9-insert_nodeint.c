@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - returns the nth node of a listint_t linked list.
+ * _get_nodeint_at_index - returns the nth node of a listint_t linked list.
  * @head: head ptr list first elem
  * @index: index of elem
  * Return: the node ptr
@@ -30,9 +30,7 @@ listint_t *_get_nodeint_at_index(listint_t *head, unsigned int index)
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *node, *n_node;
-	/* check */
-	if (!(*head))
-		return (NULL);
+
 	node = *head; /* cp ptr address */
 	/* alloc mem  */
 	n_node = malloc(sizeof(listint_t));
@@ -43,8 +41,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		n_node->n = n, n_node->next = node;
 		return (n_node);
 	}
+	/* get node before insert position */
 	node = _get_nodeint_at_index(node, idx - 1);
-	/* assign */
-	n_node->n = n, n_node->next = node->next, node->next = n_node;
+	if (!node)
+		return (NULL); /* if prev node doesnt exist why bother? */
+	/* assign new node's next to point to the current node next */
+	n_node->n = n, n_node->next = node->next;
+	/* assign current node next to point to new node */
+	node->next = n_node;
 	return (n_node);
 }

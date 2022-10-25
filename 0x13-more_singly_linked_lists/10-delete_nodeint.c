@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - returns the nth node of a listint_t linked list.
+ * _get_nodeint_at_index - returns the nth node of a listint_t linked list.
  * @head: head ptr list first elem
  * @index: index of elem
  * Return: the node ptr
