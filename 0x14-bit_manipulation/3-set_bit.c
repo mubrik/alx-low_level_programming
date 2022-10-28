@@ -2,12 +2,12 @@
 #include "main.h"
 
 /**
- * get_bit - returns the value of a bit at a given index...
- * @n: unsigned number
+ * set_bit - sets the value of a bit to 1 at a given index.
+ * @n: ptr to unsigned number
  * @index: index unsigned number
  * Return: the bit
  */
-int get_bit(unsigned long int n, unsigned int index)
+int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long bitmask;
 	/* check */
@@ -15,8 +15,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 	/* push bit by index */
 	bitmask = 1UL << index;
-	/* and to get value */
-	if (bitmask & n)
-		return (1);
-	return (0);
+	/* simple or should do the trick */
+	*n |= bitmask;
+	return (1);
 }
