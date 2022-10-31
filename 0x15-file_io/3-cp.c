@@ -2,43 +2,50 @@
 #include "main.h"
 
 /**
-  * _strlen - returns the length of a string.
-	* @src_ptr: pointer of char
-	* Return: int length
-	*/
-int _strlen(char *src_ptr)
-{
-	/* checking if the current value of pointer not null */
-	if (*src_ptr != 0)
-	{
-		/* move the pointer foward and call the function again adding 1! */
-		src_ptr++;
-		return (1 + _strlen(src_ptr));
-	}
-
-	return (0);
-}
-
-/**
- * append_text_to_file - appends text at the end of a file.
- * @filename: file name/path
- * @text_content: text buffer to add to file
- * Return: unsigned int.
+ * main - check the code
+ * @ac: argument count
+ * @av: ptr to char array of args
+ * Return: Always 0.
  */
-int append_text_to_file(const char *filename, char *text_content)
+int main(int ac, char *av[])
 {
-	unsigned int fd;
+	char *pr_buff;
+	unsigned int file_to_fd, file_from_fd;
+	int read_size = 1, w_file, c_ft, c_ff;
 
-	if (!filename)
-		return (-1);
-	/* attempt to open in rdonly */
-	fd = open(filename, O_RDWR | O_APPEND);
-	if (!fd)
-		return (-1);
+	/* arg check */
+	if (ac != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	/* open file to / create */
+	file_to_fd = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	if (!file_to_fd)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+	/* read file from */
+	file_from_fd = open(av[1], O_RDONLY);
+	if (!file_from_fd)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(99);
 
-	if (text_content)
-		write(fd, text_content, _strlen(text_content));
+	pr_buff = malloc(BUFF_SIZE);
+	if (!pr_buff)
+		exit(97);
 
-	close(fd);
-	return (1);
+	/* loop to read with buffer */
+	for (; read_size >= 0; read_size -= BUFF_SIZE)
+	{
+		/* read within buffer */
+		read_size = read(file_from_fd, pr_buff, BUFF_SIZE);
+		w_file = write(file_to_fd, pr_buff, read_size);
+		if (w_file < 0)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+	}
+	c_ff = close(file_from_fd), c_ft = close(file_to_fd);
+	if (c_ff < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", c_ff), exit(100);
+	if (c_ft < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", c_ft), exit(100);
+
+	exit(EXIT_SUCCESS);
 }
