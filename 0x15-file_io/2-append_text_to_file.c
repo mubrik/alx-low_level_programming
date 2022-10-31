@@ -28,6 +28,7 @@ int _strlen(char *src_ptr)
 int append_text_to_file(const char *filename, char *text_content)
 {
 	unsigned int fd;
+	int w_val = 0;
 
 	if (!filename)
 		return (-1);
@@ -37,7 +38,11 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (text_content)
-		write(fd, text_content, _strlen(text_content));
+	{
+		w_val = write(fd, text_content, _strlen(text_content));
+		if (w_val < 0)
+			return (-1);
+	}
 
 	close(fd);
 	return (1);
