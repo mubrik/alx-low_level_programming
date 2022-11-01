@@ -31,12 +31,13 @@ int main(int ac, char *av[])
 	pr_buff = malloc(BUFF_SIZE);
 	if (!pr_buff)
 		exit(97);
-
 	/* loop to read with buffer */
 	for (; read_size >= 0; read_size -= BUFF_SIZE)
 	{
 		/* read within buffer */
 		read_size = read(file_from_fd, pr_buff, BUFF_SIZE);
+		if (read_size < 0)
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 		w_file = write(file_to_fd, pr_buff, read_size);
 		if (w_file < 0)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
