@@ -14,7 +14,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	if (!head)
 		return (status);
-
 	/* make sure start of node, not necessary but alx gon alx */
 	tmp = *head;
 	while (tmp)
@@ -32,15 +31,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			prev = tmp->prev;
 			next = tmp->next;
 			/* if prev null starting index == 0, make next item start of list/null */
-			if (prev)
-				prev->next = next;
-			else
+			if (!prev)
 				*head = next;
+			else
+				prev->next = next;
 			/* if next null, last item in list */
 			if (next)
 				next->prev = prev;
-			else if (index != 0)
-				prev->next = NULL;
 			free(tmp), status = 0;
 			break;
 		}
