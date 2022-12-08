@@ -10,13 +10,11 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **head,
 	unsigned int idx, int n)
 {
-	dlistint_t *node = NULL, *tmp = NULL, *prev = NULL;
+	dlistint_t *node = NULL, *tmp = NULL, *prev = NULL, *next = NULL;
 	unsigned int i = 0;
 
 	if (!head)
 		return (tmp);
-
-	/* make sure start of node, not necessary but alx gon alx */
 	tmp = *head;
 	while (tmp)
 	{
@@ -24,22 +22,32 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head,
 			break;
 		tmp = tmp->prev;
 	}
-	/* iterate */
-	while (tmp)
+	if (!tmp && idx == 0)
 	{
-		if (idx == i)
-		{
-			node = malloc(sizeof(dlistint_t));
-			if (!node)
-				return (NULL);
-			prev = tmp->prev;
-			/* add atributes and change postions */
-			prev->next = node, tmp->prev = node;
-			node->prev = prev, node->next = tmp, node->n = n;
-			break;
-		}
-		tmp = tmp->next, i++;
+		node = malloc(sizeof(dlistint_t));
+		if (!node)
+			return (NULL);
+		node->n = n, node->next = next, node->prev = prev, *head = node;
 	}
-
-	return (tmp);
+	else
+	{
+		while (tmp)
+		{
+			if (idx == i)
+			{
+				node = malloc(sizeof(dlistint_t));
+				if (!node)
+					return (NULL);
+				prev = tmp->prev, next = tmp;
+				if (!prev)
+					*head = node;
+				else
+					prev->next = node;
+				node->prev = prev, node->next = next, node->n = n, next->prev = node;
+				break;
+			}
+			tmp = tmp->next, i++;
+		}
+	}
+	return (node);
 }
