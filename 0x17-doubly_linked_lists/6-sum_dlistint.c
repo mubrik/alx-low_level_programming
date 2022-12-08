@@ -1,16 +1,17 @@
 #include "lists.h"
 
 /**
- * free_dlistint - frees memory of dlistint_t list.
+ * sum_dlistint - sums the numbers of a dlistint_t.
  * @head: pto to head ptr to list first elem
  * Return: ptr to new node.
  */
-void free_dlistint(dlistint_t *head)
+int sum_dlistint(dlistint_t *head)
 {
-	dlistint_t *next;
+	int sum = 0;
 
 	if (!head)
-		return;
+		return (sum);
+
 	/* make sure start of node, not necessary but alx gon alx */
 	while (head)
 	{
@@ -18,8 +19,9 @@ void free_dlistint(dlistint_t *head)
 			break;
 		head = head->prev;
 	}
-	/* iterate foward and free */
+	/* iterate */
 	while (head)
-		next = head->next, free(head), head = next;
+		sum += head->n, head = head->next;
 
+	return (sum);
 }
