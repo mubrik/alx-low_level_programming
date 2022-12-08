@@ -38,7 +38,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			/* if next null, last item in list */
 			if (next)
 				next->prev = prev;
-			free(tmp), status = 0;
+			free(tmp), status = 1;
 			break;
 		}
 		tmp = tmp->next, i++;
