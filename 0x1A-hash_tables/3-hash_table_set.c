@@ -150,7 +150,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (node)
 			free(node->value), node->value = _strdup(value);
 		else
-			add_node(ht->array, ind, key, value);
+			node = add_node(ht->array, ind, key, value);
 	}
 
 	if (node)
