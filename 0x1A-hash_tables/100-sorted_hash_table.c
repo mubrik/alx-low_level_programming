@@ -73,15 +73,15 @@ shash_node_t *add_node_sht(shash_node_t **head, u_int64_t index,
  * @index: index to add key/val
  * @key: Non empty string
  * @value: Value to stor
- * Return: ptr to new node.
+ * Return: int 0 == update, 1 == new node, negative error
  */
-shash_node_t *update_add_node_sht(shash_node_t **head, u_int64_t index,
+int update_node_sht(shash_node_t **head, u_int64_t index,
 	const char *key, const char *value)
 {
 	shash_node_t *node = NULL;
 
 	if (!head || !key)
-		return (node);
+		return (-1);
 	node = head[index];
 	while (node)
 	{
@@ -89,12 +89,13 @@ shash_node_t *update_add_node_sht(shash_node_t **head, u_int64_t index,
 			break;
 		node = node->next;
 	}
-	/* add node if it doesnt, update if it does */
+	/* update if it does */
 	if (node)
+	{
 		free(node->value), node->value = strdup(value);
-	else
-		node = add_node_sht(head, index, key, value);
-	return (node);
+		return (0);
+	}
+	return (1);
 }
 
 /**
@@ -150,6 +151,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *node = NULL;
 	u_int64_t ind;
+	int upd;
 	/* checks */
 	if (!ht || !key)
 		return (0);
@@ -159,7 +161,13 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (!ht->array[ind])
 		node = add_node_sht(ht->array, ind, key, value);
 	else
-		node = update_add_node_sht(ht->array, ind, key, value);
+	{
+		upd = update_node_sht(ht->array, ind, key, value);
+		if (upd != 0)
+			node = add_node_sht(ht->array, ind, key, value);
+		else
+			return (1);
+	}
 	/* quick return */
 	if (!node)
 		return (0);
