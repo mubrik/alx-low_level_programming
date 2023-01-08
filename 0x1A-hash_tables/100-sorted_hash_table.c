@@ -162,11 +162,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		node = add_node_sht(ht->array, ind, key, value);
 	else
 	{
+		/* check if node exist, update if */
 		upd = update_node_sht(ht->array, ind, key, value);
-		if (upd != 0)
-			node = add_node_sht(ht->array, ind, key, value);
-		else
+		if (upd == 0)
 			return (1);
+		node = add_node_sht(ht->array, ind, key, value);
 	}
 	/* quick return */
 	if (!node)
