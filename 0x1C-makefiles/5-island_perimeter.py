@@ -16,20 +16,20 @@ def island_perimeter(grid):
         for index, item in enumerate(row):
             if item:
                 # check back
-                if index:
-                    total = total + 1 if not row[index - 1] else total
+                if not index or not row[index - 1]:
+                    total = total + 1
                 # check foward
-                if index < len_row - 1:
-                    total = total + 1 if not row[index + 1] else total
+                if index == len_row - 1 or not row[index + 1]:
+                    total = total + 1
     # get vertical perimeter
     for column in zip(*grid):
         col_l = column.__len__()
         for index, item in enumerate(column):
             if item:
                 # check back
-                if index:
-                    total = total + 1 if not column[index - 1] else total
+                if not index or not column[index - 1]:
+                    total = total + 1
                 # check foward
-                if index < col_l - 1:
-                    total = total + 1 if not column[index + 1] else total
+                if index == col_l - 1 or not column[index + 1]:
+                    total = total + 1
     return total
