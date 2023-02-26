@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Create a function def island_perimeter(grid):
-"""
+""" Create a function def island_perimeter(grid): """
 
 
 def island_perimeter(grid: list[list[int]]):
