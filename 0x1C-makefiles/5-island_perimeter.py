@@ -2,7 +2,7 @@
 """ Create a function def island_perimeter(grid): """
 
 
-def island_perimeter(grid: list[list[int]]):
+def island_perimeter(grid):
     """ find the perimeter of a grid """
     total = 0
     if not grid:
