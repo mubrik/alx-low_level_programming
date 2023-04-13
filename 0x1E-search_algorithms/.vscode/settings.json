@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "search_algos.h": "c"
+    "search_algos.h": "c",
+    "limits": "c"
   }
 }
